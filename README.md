@@ -103,6 +103,8 @@ These commands will automatically:
 
 - [bili-api]
 
+[badge-license]: https://img.shields.io/badge/license-MIT-blue.svg
 [url-license]: https://github.com/wangshunnn/bilibili-mcp-server/blob/main/LICENSE
+[badge-npm-version]: https://img.shields.io/npm/v/@wangshunnn/bilibili-mcp-server/latest?color=brightgreen
 [url-npm]: https://www.npmjs.com/package/@wangshunnn/bilibili-mcp-server
 [bili-api]: https://github.com/simon300000/bili-api
