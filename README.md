@@ -23,12 +23,12 @@ config for npm (recommended)
 
 ```json
 {
-    "mcpServers": {
-        "bilibili": {
-            "command": "npx",
-            "args": ["-y", "@wangshunnn/bilibili-mcp-server"]
-        }
+  "mcpServers": {
+    "bilibili": {
+      "command": "npx",
+      "args": ["-y", "@wangshunnn/bilibili-mcp-server"]
     }
+  }
 }
 ```
 
@@ -38,14 +38,14 @@ config for local cloned repo
 
 ```json
 {
-    "mcpServers": {
-        "bilibili": {
-            "command": "node",
-            "args": [
-                "/ABSOLUTE/PATH/TO/PARENT/FOLDER/bilibili-mcp-server/dist/index.js"
-            ]
-        }
+  "mcpServers": {
+    "bilibili": {
+      "command": "node",
+      "args": [
+        "/ABSOLUTE/PATH/TO/PARENT/FOLDER/bilibili-mcp-server/dist/index.js"
+      ]
     }
+  }
 }
 ```
 
