@@ -1,6 +1,6 @@
-# Bilibili MCP Server
+# bilibili MCP Server
 
-> Model Context Protocol (MCP) Server for [Bilibili](https://www.bilibili.com) API
+> Model Context Protocol (MCP) Server for [bilibili](https://www.bilibili.com) API
 
 ## Demo
 
