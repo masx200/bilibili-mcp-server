@@ -74,6 +74,27 @@ pnpm dev
 
 3. debug for local repo, see [above](#usage).
 
+## Publishing
+
+To publish a new version to npm:
+
+```sh
+# For patch version update (0.0.x)
+pnpm publish:patch
+
+# For minor version update (0.x.0)
+pnpm publish:minor
+
+# For major version update (x.0.0)
+pnpm publish:major
+```
+
+These commands will automatically:
+
+1. Bump the version in package.json
+2. Build the project
+3. Publish to npm registry
+
 ## Credits
 
 - [bili-api](https://github.com/simon300000/bili-api)
