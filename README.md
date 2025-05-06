@@ -1,6 +1,6 @@
 # Bilibili MCP Server
 
-> 一个基于 Model Context Protocol (MCP) 的 Bilibili Server
+> Model Context Protocol (MCP) Server for [Bilibili](https://www.bilibili.com) API
 
 ## Demo
 
@@ -8,18 +8,19 @@
 
 ## Features
 
-### 用户相关
+### User Info
 
-- `get_user_info`: 获取用户的个人资料信息
+- `get_user_info`: get user infomation
 
 ## Usage
 
 ### Claude Desktop
 
-> Refer: https://modelcontextprotocol.io/quickstart/server#testing-your-server-with-claude-for-desktop-2
+> Refer to the official [documentation](https://modelcontextprotocol.io/quickstart/server#testing-your-server-with-claude-for-desktop-2)
+
+config for npm (recommended)
 
 ```json
-// config for npm (recommend)
 {
   "mcpServers": {
     "bilibili": {
@@ -32,9 +33,9 @@
 
 _**or**_
 
+git clone & config for local cloned repo
+
 ```json
-// 1. git clone
-// 2. config for local cloned repo
 {
   "mcpServers": {
     "bilibili": {
@@ -47,13 +48,9 @@ _**or**_
 }
 ```
 
-> 保存配置，重启后能看到新增的 Bilibili MCP 选项，如下图：
+Save the configuration and restart. You will see the new Bilibili MCP option as shown below:
 
 <div align="center">
   <img src="./images/claude-desktop-1.png" alt="" width="600">
   <img src="./images/claude-desktop-2.png" alt="" width="600">
 </div>
-
-### Cursor
-
-- [ ] TODO
