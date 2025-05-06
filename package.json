@@ -1,12 +1,12 @@
 {
-  "name": "bilibili-mcp-server",
-  "version": "1.0.0",
+  "name": "@jojojs/bilibili-mcp-server",
+  "version": "0.0.1",
   "packageManager": "pnpm@10.8.0",
   "description": "MCP server for using the Bilibili API",
   "license": "MIT",
   "author": "Soon Wang",
-  "homepage": "https://github.com/jojojs-lab/bilibili-mcp-server",
-  "bugs": "https://github.com/jojojs-lab/bilibili-mcp-server/issues",
+  "homepage": "https://github.com/wangshunnn/bilibili-mcp-server",
+  "bugs": "https://github.com/wangshunnn/bilibili-mcp-server/issues",
   "type": "module",
   "bin": {
     "bilibili-mcp": "dist/index.js"

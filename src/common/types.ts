@@ -1,0 +1,90 @@
+/**
+ * 用户信息
+ */
+export interface UserInfo {
+  mid: number
+  /** 用户名 */
+  name: string
+  /** 头像图片地址 */
+  face: string
+  /** 个性签名 */
+  sign: string
+  /** 等级 */
+  level: number
+  /** 生日 */
+  birthday: string
+  /** 标签 */
+  tags: string[]
+  live_room: {
+    /** 直播间状态 0: 未开播 1: 开播 */
+    liveStatus: 0 | 1
+    /** 直播间地址 */
+    url: string
+    watched_show: {
+      /** 多少人看过 */
+      text_small: number
+    }
+  }
+  official: {
+    role: number
+    title: string
+    desc: string
+  } | null
+  vip: {
+    type: number
+    status: number
+  }
+  followInfo: {
+    /** 粉丝数 */
+    follower: number
+    /** 关注数 */
+    following: number
+  }
+  /** 调用失败 */
+  v_voucher: any
+}
+export interface BiliResponse<T> {
+  code: number
+  message: string
+  ttl?: number
+  data: T
+}
+
+export interface SearchResult {
+  seid: string
+  page: number
+  pagesize: number
+  numResults: number
+  numPages: number
+  result: Array<VideoSearchItem | UserSearchItem>
+}
+
+export interface VideoSearchItem {
+  type: "video"
+  id: number
+  bvid: string
+  title: string
+  description: string
+  author: string
+  mid: number
+  pic: string
+  play: number
+  danmaku: number
+  duration: string
+  pubdate: number
+}
+
+export interface UserSearchItem {
+  type: "user"
+  mid: number
+  name: string
+  face: string
+  fans: number
+  level: number
+  official: {
+    role: number
+    title: string
+  } | null
+  sign: string
+  videos?: number
+}
