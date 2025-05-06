@@ -1,5 +1,9 @@
 # bilibili MCP Server
 
+[![MIT licensed][badge-license]][url-license]
+[![NPM version][badge-npm-version]][url-npm]
+[![NPM Unpacked Size (with version)](https://img.shields.io/npm/unpacked-size/rolldown/latest?label=npm)][url-npm]
+
 > _Model Context Protocol ([MCP](https://modelcontextprotocol.io/introduction)) Server for [bilibili.com](https://www.bilibili.com)._
 
 ## Demo
@@ -97,4 +101,8 @@ These commands will automatically:
 
 ## Credits
 
-- [bili-api](https://github.com/simon300000/bili-api)
+- [bili-api]
+
+[url-license]: https://github.com/wangshunnn/bilibili-mcp-server/blob/main/LICENSE
+[url-npm]: https://www.npmjs.com/package/@wangshunnn/bilibili-mcp-server
+[bili-api]: https://github.com/simon300000/bili-api
