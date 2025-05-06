@@ -1,6 +1,6 @@
 # bilibili MCP Server
 
-> Model Context Protocol (MCP) Server for [bilibili](https://www.bilibili.com) API
+> _Model Context Protocol ([MCP](https://modelcontextprotocol.io/introduction)) Server for [bilibili.com](https://www.bilibili.com)._
 
 ## Demo
 
@@ -10,7 +10,8 @@
 
 ### User Info
 
-- `get_user_info`: get user infomation
+- [x] Get user infomation
+- [ ] Search videos
 
 ## Usage
 
@@ -22,35 +23,57 @@ config for npm (recommended)
 
 ```json
 {
-  "mcpServers": {
-    "bilibili": {
-      "command": "npx",
-      "args": ["-y", "@jojojs/bilibili-mcp-server"]
+    "mcpServers": {
+        "bilibili": {
+            "command": "npx",
+            "args": ["-y", "@wangshunnn/bilibili-mcp-server"]
+        }
     }
-  }
 }
 ```
 
 _**or**_
 
-git clone & config for local cloned repo
+config for local cloned repo
 
 ```json
 {
-  "mcpServers": {
-    "bilibili": {
-      "command": "node",
-      "args": [
-        "/ABSOLUTE/PATH/TO/PARENT/FOLDER/bilibili-mcp-server/dist/index.js"
-      ]
+    "mcpServers": {
+        "bilibili": {
+            "command": "node",
+            "args": [
+                "/ABSOLUTE/PATH/TO/PARENT/FOLDER/bilibili-mcp-server/dist/index.js"
+            ]
+        }
     }
-  }
 }
 ```
 
 Save the configuration and restart. You will see the new Bilibili MCP option as shown below:
 
 <div align="center">
-  <img src="./images/claude-desktop-1.png" alt="" width="600">
-  <img src="./images/claude-desktop-2.png" alt="" width="600">
+  <img src="./images/claude-desktop-1.png" alt="" width="500">
+  <img src="./images/claude-desktop-2.png" alt="" width="500">
 </div>
+
+## Local Development
+
+1. Install dependencies
+
+```sh
+pnpm i
+```
+
+2. build
+
+```sh
+pnpm build
+# or
+pnpm dev
+```
+
+3. debug for local repo, see [above](#usage).
+
+## Credits
+
+- [bili-api](https://github.com/simon300000/bili-api)
