@@ -10,7 +10,7 @@
 
 ### User Info
 
-- [x] Get user infomation
+- [x] Get user information
 - [ ] Search videos
 
 ## Usage
