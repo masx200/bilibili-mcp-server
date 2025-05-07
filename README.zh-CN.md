@@ -10,7 +10,9 @@
 
 ## 演示
 
-- [ ] 待完成
+<div align="center">
+  <video src="./assets/claude-desktop-demo.mp4" width="500" controls>
+</div>
 
 ## 功能特性
 
@@ -59,9 +61,9 @@ _**或者**_
 保存配置并重启，您将会看到如下所示的新 `bilibili MCP` 选项：
 
 <div align="center">
-  <img src="./images/claude-desktop-1.png" alt="" width="500">
-  <img src="./images/claude-desktop-2.png" alt="" width="500">
-  <img src="./images/claude-desktop-setting.png" alt="" width="500">
+  <img src="./assets/claude-desktop-1.png" alt="" width="500">
+  <img src="./assets/claude-desktop-2.png" alt="" width="500">
+  <img src="./assets/claude-desktop-setting.png" alt="" width="500">
 </div>
 
 ## 本地开发

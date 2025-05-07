@@ -10,7 +10,9 @@ English | [简体中文](./README.zh-CN.md)
 
 ## Demo
 
-- [ ] TODO
+<div align="center">
+  <video src="./assets/claude-desktop-demo.mp4" width="500" controls>
+</div>
 
 ## Features
 
@@ -59,9 +61,9 @@ config for local cloned repo
 Save the configuration and restart. You will see the new `bilibili MCP` option as shown below:
 
 <div align="center">
-  <img src="./images/claude-desktop-1.png" alt="" width="500">
-  <img src="./images/claude-desktop-2.png" alt="" width="500">
-  <img src="./images/claude-desktop-setting.png" alt="" width="500">
+  <img src="./assets/claude-desktop-1.png" alt="" width="500">
+  <img src="./assets/claude-desktop-2.png" alt="" width="500">
+  <img src="./assets/claude-desktop-setting.png" alt="" width="500">
 </div>
 
 ## Local Development

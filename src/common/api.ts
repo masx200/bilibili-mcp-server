@@ -1,3 +1,4 @@
+import fetch from "node-fetch"
 import type {
   BiliResponse,
   UserInfo,
@@ -6,6 +7,10 @@ import type {
   SearchResult,
 } from "./types.js"
 import { wbiSignParamsQuery } from "./wbi.js"
+
+if (!globalThis.fetch) {
+  globalThis.fetch = fetch as unknown as typeof global.fetch
+}
 
 const BASE_URL = "https://api.bilibili.com"
 
