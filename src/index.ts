@@ -7,7 +7,7 @@ import { registerSearchTools } from "./tools/search.js"
 
 const server = new McpServer({
   name: "bilibili-mcp-server",
-  version: "0.0.6",
+  version: "0.0.7",
 })
 
 async function main() {
