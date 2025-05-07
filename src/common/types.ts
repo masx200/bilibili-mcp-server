@@ -56,7 +56,10 @@ export interface SearchResult {
   pagesize: number
   numResults: number
   numPages: number
-  result: Array<VideoSearchItem | UserSearchItem>
+  result: Array<{
+    result_type: string
+    data: (VideoSearchItem | UserSearchItem)[]
+  }>
 }
 
 /**
@@ -112,14 +115,25 @@ export interface VideoSearchItem {
   type: "video"
   id: number
   bvid: string
+  /** 地址 */
+  arcurl: string
+  /** 标题 */
   title: string
+  /** 简介 */
   description: string
+  /** 作者 */
   author: string
-  mid: number
-  pic: string
+  /** 播放数 */
   play: number
+  /** 弹幕数 */
   danmaku: number
+  /** 点赞数 */
+  like: number
+  /** 类型 */
+  typename: string
+  /** 时长 */
   duration: string
+  /** 发布时间 (单位/秒) */
   pubdate: number
 }
 

@@ -6,15 +6,14 @@ import { registerVideoTools } from "./tools/video.js"
 import { registerSearchTools } from "./tools/search.js"
 
 const server = new McpServer({
-  name: "bilibili-mcp",
-  version: "0.0.1",
+  name: "bilibili-mcp-server",
+  version: "0.0.4",
 })
 
 async function main() {
   registerUserTools(server)
   registerVideoTools(server)
   registerSearchTools(server)
-
   const transport = new StdioServerTransport()
   await server.connect(transport)
   console.error("Bilibili MCP Server running on stdio")

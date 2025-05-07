@@ -7,7 +7,6 @@ import type {
 } from "./types.js"
 import { wbiSignParamsQuery } from "./wbi.js"
 
-// API 基础 URL
 const BASE_URL = "https://api.bilibili.com"
 
 // 默认请求头
@@ -15,7 +14,6 @@ const DEFAULT_HEADERS = {
   "User-Agent":
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
   Referer: "https://www.bilibili.com",
-  // 添加 Cookie，设置必要的字段
   Cookie: "buvid3=randomstring; path=/; domain=.bilibili.com",
 }
 
@@ -31,10 +29,9 @@ export async function apiRequest<T>(
   let url = `${BASE_URL}${endpoint}`
 
   if (params) {
-    // 将 params 转换为查询字符串
+    //  使用 WBI 签名
     const signedParams = await wbiSignParamsQuery(params)
     url += `?${signedParams}`
-    console.log("---> debug url", url)
   }
 
   const response = await fetch(url, {
@@ -49,8 +46,6 @@ export async function apiRequest<T>(
 
   const data = (await response.json()) as BiliResponse<T>
 
-  console.log("---> debug data", data)
-
   if (data.code !== 0) {
     throw new Error(`API returned error: ${data.message || "Unknown error"}`)
   }
@@ -63,14 +58,14 @@ export async function apiRequest<T>(
  */
 export const userAPI = {
   /**
-   * 获取用户信息 (使用WBI签名)
+   * 获取用户信息
    */
   async getInfo(mid: number) {
     return await apiRequest<UserInfo>("/x/space/wbi/acc/info", { mid })
   },
 
   /**
-   * 获取用户关注数据
+   * 获取用户关注和粉丝数
    */
   async getRelationStat(mid: number) {
     return await apiRequest<{ follower: number; following: number }>(
@@ -117,6 +112,3 @@ export const searchAPI = {
     })
   },
 }
-
-// 使用示例:
-// searchAPI.searchVideos("test", 1).then(res => console.log(res));

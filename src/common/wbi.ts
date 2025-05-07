@@ -1,3 +1,9 @@
+/**
+ * Reference: JavaScript implementation from Bilibili-API-Collect
+ * https://github.com/SocialSisterYi/bilibili-API-collect/blob/master/docs/misc/sign/wbi.md#javascript
+ * Thanks!
+ */
+
 import crypto from "node:crypto"
 
 /**
@@ -135,7 +141,6 @@ export const wbiSign = {
     params: Record<string, string | number>
   ): Promise<Record<string, string | number>> {
     const queryString: string = await wbiSignParamsQuery(params)
-    // 解析查询字符串回参数对象
     const urlParams = new URLSearchParams(queryString)
     const signedParams: Record<string, string> = {}
 

@@ -13,10 +13,10 @@ import i18n from "./i18n.js"
 export async function getUserInfo(mid: number): Promise<UserInfo> {
   try {
     // 获取用户基本信息
-    const userInfo = await userAPI.getInfo(mid)
+    const userInfo = (await userAPI.getInfo(mid)) || {}
 
     // 获取用户粉丝和关注数
-    const followData = await userAPI.getRelationStat(mid)
+    const followData = (await userAPI.getRelationStat(mid)) || {}
 
     // 合并数据
     userInfo.followInfo = {
@@ -39,7 +39,7 @@ export async function searchVideos(
   page: number = 1
 ): Promise<SearchResult> {
   try {
-    return await searchAPI.searchVideos(keyword, page)
+    return await searchAPI.searchVideos(keyword, page) || {}
   } catch (error) {
     console.error("Error searching videos:", error)
     throw error

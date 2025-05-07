@@ -25,7 +25,7 @@ export function registerSearchTools(server: McpServer): void {
     },
     async ({ keyword, page, count }) => {
       try {
-        const searchResult = await searchVideos(keyword, page)
+        const searchResult = await searchVideos(keyword, page) || {}
 
         if (!searchResult.result || searchResult.result.length === 0) {
           return {
@@ -40,12 +40,21 @@ export function registerSearchTools(server: McpServer): void {
 
         // 过滤出视频结果并限制数量
         const videoResults = searchResult.result
-          .filter((item): item is VideoSearchItem => item.type === "video")
-          .slice(0, count)
+          .filter((item) => item.result_type === "video")?.[0]
+          ?.data?.slice(0, count) as VideoSearchItem[]
 
         const formattedResults = videoResults
           .map((video, index) => {
-            return `${index + 1}. "${video.title}" - ${video.author}\n   BV ID: ${video.bvid}\n   Views: ${video.play.toLocaleString()}   Danmaku: ${video.danmaku.toLocaleString()}   Duration: ${video.duration}\n   Published: ${formatTimestamp(video.pubdate)}\n   Description: ${video.description.substring(0, 100)}${video.description.length > 100 ? "..." : ""}`
+            return [
+              `${index + 1}. "${video.title}" - ${video.author}`,
+              ` BV ID: ${video.bvid}`,
+              ` Views: ${video.play?.toLocaleString()}`,
+              ` Danmaku: ${video.danmaku?.toLocaleString()}`,
+              ` Likes: ${video.like?.toLocaleString()}`,
+              ` Duration: ${video.duration}`,
+              ` Published: ${formatTimestamp(video.pubdate)}`,
+              ` Description: ${video.description?.substring(0, 100)}${video.description?.length > 100 ? "..." : ""}`,
+            ].join("\n")
           })
           .join("\n\n")
 
@@ -53,7 +62,11 @@ export function registerSearchTools(server: McpServer): void {
           content: [
             {
               type: "text",
-              text: `Search results for "${keyword}":\n\n${formattedResults}\n\nFound ${searchResult.numResults} related videos in total, currently showing ${videoResults.length} results from page ${page}.`,
+              text: [
+                `Search results for "${keyword}":`,
+                formattedResults,
+                `Found ${searchResult.numResults} related videos in total, currently showing ${videoResults.length} results from page ${page}.`,
+              ].join("\n"),
             },
           ],
         }
