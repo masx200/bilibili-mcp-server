@@ -58,6 +58,7 @@ Save the configuration and restart. You will see the new Bilibili MCP option as 
 <div align="center">
   <img src="./images/claude-desktop-1.png" alt="" width="500">
   <img src="./images/claude-desktop-2.png" alt="" width="500">
+  <img src="./images/claude-desktop-setting.png" alt="" width="500">
 </div>
 
 ## Local Development
@@ -101,10 +102,9 @@ These commands will automatically:
 
 ## Credits
 
-- [bili-api]
+- [bilibili-API-collect](https://socialsisteryi.github.io/bilibili-API-collect/)
 
 [badge-license]: https://img.shields.io/badge/license-MIT-blue.svg
 [url-license]: https://github.com/wangshunnn/bilibili-mcp-server/blob/main/LICENSE
 [badge-npm-version]: https://img.shields.io/npm/v/@wangshunnn/bilibili-mcp-server/latest?color=brightgreen
 [url-npm]: https://www.npmjs.com/package/@wangshunnn/bilibili-mcp-server
-[bili-api]: https://github.com/simon300000/bili-api

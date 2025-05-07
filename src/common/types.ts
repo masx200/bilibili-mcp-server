@@ -59,6 +59,55 @@ export interface SearchResult {
   result: Array<VideoSearchItem | UserSearchItem>
 }
 
+/**
+ * 视频详情
+ */
+export interface VideoDetail {
+  bvid: string
+  aid: number
+  title: string
+  desc: string
+  pic: string
+  owner: {
+    mid: number
+    name: string
+    face: string
+  }
+  stat: {
+    view: number
+    danmaku: number
+    reply: number
+    favorite: number
+    coin: number
+    share: number
+    like: number
+  }
+  duration: number
+  cid: number
+  pubdate: number
+  ctime: number
+  tags: string[]
+}
+
+/**
+ * 相关视频推荐
+ */
+export interface RelatedVideo {
+  bvid: string
+  aid: number
+  title: string
+  pic: string
+  owner: {
+    mid: number
+    name: string
+  }
+  stat: {
+    view: number
+    danmaku: number
+  }
+  duration: number
+}
+
 export interface VideoSearchItem {
   type: "video"
   id: number
