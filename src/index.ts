@@ -6,7 +6,7 @@ import { registerVideoTools } from "./tools/video.js"
 import { registerSearchTools } from "./tools/search.js"
 
 const server = new McpServer({
-  name: "bilibili-mcp-server",
+  name: "bilibili-mcp",
   version: "0.0.4",
 })
 
