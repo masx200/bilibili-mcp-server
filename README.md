@@ -68,6 +68,14 @@ Save the configuration and restart. You will see the new `bilibili MCP` option a
   <img src="./assets/claude-desktop-setting.png" alt="" width="500">
 </div>
 
+#### Demo
+
+> [demo video](./assets/claude-desktop-demo.mp4)
+
+<div align="center">
+  <video src="./assets/claude-desktop-demo.mp4" width="500" controls>
+</div>
+
 ## Local Development
 
 1. Install dependencies

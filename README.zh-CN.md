@@ -8,12 +8,6 @@
 
 > _[bilibili.com](https://www.bilibili.com) 的模型上下文协议 ([MCP](https://modelcontextprotocol.io/introduction)) 服务器。_
 
-## 演示
-
-<div align="center">
-  <video src="./assets/claude-desktop-demo.mp4" width="500" controls>
-</div>
-
 ## 功能特性
 
 ### 用户信息
@@ -66,6 +60,14 @@ _**或者**_
   <img src="./assets/claude-desktop-2.png" alt="" width="500">
   
   <img src="./assets/claude-desktop-setting.png" alt="" width="500">
+</div>
+
+#### 演示
+
+> [demo video](./assets/claude-desktop-demo.mp4)
+
+<div align="center">
+  <video src="./assets/claude-desktop-demo.mp4" width="500" controls>
 </div>
 
 ## 本地开发
