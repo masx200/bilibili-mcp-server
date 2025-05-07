@@ -62,13 +62,9 @@ _**或者**_
   <img src="./assets/claude-desktop-setting.png" alt="" width="500">
 </div>
 
-#### 演示
+#### 演示视频
 
-> [demo video](./assets/claude-desktop-demo.mp4)
-
-<div align="center">
-  <video src="./assets/claude-desktop-demo.mp4" width="500" controls>
-</div>
+https://github.com/user-attachments/assets/813dece6-c9b5-4bc5-96c1-c3b4d284cc76
 
 ## 本地开发
 

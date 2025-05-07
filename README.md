@@ -8,10 +8,6 @@ English | [简体中文](./README.zh-CN.md)
 
 > _Model Context Protocol ([MCP](https://modelcontextprotocol.io/introduction)) Server for [bilibili.com](https://www.bilibili.com)._
 
-## Demo
-
-https://github.com/user-attachments/assets/813dece6-c9b5-4bc5-96c1-c3b4d284cc76
-
 ## Features
 
 ### User Info
@@ -65,6 +61,10 @@ Save the configuration and restart. You will see the new `bilibili MCP` option a
   
   <img src="./assets/claude-desktop-setting.png" alt="" width="500">
 </div>
+
+#### Demo Vedio
+
+https://github.com/user-attachments/assets/813dece6-c9b5-4bc5-96c1-c3b4d284cc76
 
 ## Local Development
 
