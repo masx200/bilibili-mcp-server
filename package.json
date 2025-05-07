@@ -1,6 +1,6 @@
 {
   "name": "@wangshunnn/bilibili-mcp-server",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "packageManager": "pnpm@10.10.0",
   "description": "MCP server for bilibili",
   "license": "MIT",
