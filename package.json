@@ -5,9 +5,15 @@
   "description": "MCP server for bilibili",
   "license": "MIT",
   "author": "Soon Wang",
+  "type": "module",
+  "keywords": [
+    "mcp",
+    "bilibili",
+    "mcp-server",
+    "modelcontextprotocol"
+  ],
   "homepage": "https://github.com/wangshunnn/bilibili-mcp-server",
   "bugs": "https://github.com/wangshunnn/bilibili-mcp-server/issues",
-  "type": "module",
   "bin": {
     "bilibili-mcp-server": "dist/index.js"
   },
