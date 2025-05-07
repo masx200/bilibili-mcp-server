@@ -4,29 +4,29 @@
 [![NPM version][badge-npm-version]][url-npm]
 [![NPM Unpacked Size (with version)](https://img.shields.io/npm/unpacked-size/rolldown/latest?label=npm)][url-npm]
 
-English | [简体中文](./README.zh-CN.md)
+[English](./README.md) | 简体中文
 
-> _Model Context Protocol ([MCP](https://modelcontextprotocol.io/introduction)) Server for [bilibili.com](https://www.bilibili.com)._
+> _[bilibili.com](https://www.bilibili.com) 的模型上下文协议 ([MCP](https://modelcontextprotocol.io/introduction)) 服务器。_
 
-## Demo
+## 演示
 
-- [ ] TODO
+- [ ] 待完成
 
-## Features
+## 功能特性
 
-### User Info
+### 用户信息
 
-- [x] Get user information by `mid`
-- [x] Search video information by `bvid`
-- [x] Search videos by keywords
+- [x] 通过 `mid` 获取用户信息
+- [x] 通过 `bvid` 搜索视频信息
+- [x] 通过关键词搜索视频
 
-## Usage
+## 使用方法
 
 ### Claude Desktop
 
-> Refer to the official [documentation](https://modelcontextprotocol.io/quickstart/server#testing-your-server-with-claude-for-desktop-2)
+> 参考官方[文档](https://modelcontextprotocol.io/quickstart/server#testing-your-server-with-claude-for-desktop-2)
 
-config for npm (recommended)
+npm 配置（推荐）
 
 ```json
 {
@@ -39,9 +39,9 @@ config for npm (recommended)
 }
 ```
 
-_**or**_
+_**或者**_
 
-config for local cloned repo
+本地克隆仓库配置
 
 ```json
 {
@@ -56,7 +56,7 @@ config for local cloned repo
 }
 ```
 
-Save the configuration and restart. You will see the new `bilibili MCP` option as shown below:
+保存配置并重启，您将会看到如下所示的新 `bilibili MCP` 选项：
 
 <div align="center">
   <img src="./images/claude-desktop-1.png" alt="" width="500">
@@ -64,46 +64,46 @@ Save the configuration and restart. You will see the new `bilibili MCP` option a
   <img src="./images/claude-desktop-setting.png" alt="" width="500">
 </div>
 
-## Local Development
+## 本地开发
 
-1. Install dependencies
+1. 安装依赖
 
 ```sh
 pnpm i
 ```
 
-2. build
+2. 构建
 
 ```sh
 pnpm build
-# or
+# 或者
 pnpm dev
 ```
 
-3. debug for local repo, see [above](#usage).
+3. 本地仓库调试，见[上文](#使用方法)。
 
-## Publishing
+## 发布
 
-To publish a new version to npm:
+发布新版本到 npm：
 
 ```sh
-# For patch version update (0.0.x)
+# 更新补丁版本 (0.0.x)
 pnpm publish:patch
 
-# For minor version update (0.x.0)
+# 更新次要版本 (0.x.0)
 pnpm publish:minor
 
-# For major version update (x.0.0)
+# 更新主要版本 (x.0.0)
 pnpm publish:major
 ```
 
-These commands will automatically:
+这些命令将自动：
 
-1. Bump the version in package.json
-2. Build the project
-3. Publish to npm registry
+1. 更新 package.json 中的版本号
+2. 构建项目
+3. 发布到 npm 仓库
 
-## Credits
+## 鸣谢
 
 - [bilibili-API-collect](https://socialsisteryi.github.io/bilibili-API-collect/)
 
