@@ -62,7 +62,9 @@ Save the configuration and restart. You will see the new `bilibili MCP` option a
 
 <div align="center">
   <img src="./assets/claude-desktop-1.png" alt="" width="500">
+
   <img src="./assets/claude-desktop-2.png" alt="" width="500">
+  
   <img src="./assets/claude-desktop-setting.png" alt="" width="500">
 </div>
 
