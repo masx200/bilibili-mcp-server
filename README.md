@@ -6,7 +6,7 @@
 
 English | [简体中文](./README.zh-CN.md)
 
-> _Model Context Protocol ([MCP](https://modelcontextprotocol.io/introduction)) Server for [bilibili.com](https://www.bilibili.com)._
+> _Model Context Protocol ([MCP](https://modelcontextprotocol.io/introduction)) Server for the [bilibili.com](https://www.bilibili.com) API._
 
 <a href="https://glama.ai/mcp/servers/@wangshunnn/bilibili-mcp-server">
   <img width="380" height="200" src="https://glama.ai/mcp/servers/@wangshunnn/bilibili-mcp-server/badge" alt="bilibili Server MCP server" />

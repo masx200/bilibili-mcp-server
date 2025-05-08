@@ -2,7 +2,7 @@
   "name": "@wangshunnn/bilibili-mcp-server",
   "version": "0.0.7",
   "packageManager": "pnpm@10.10.0",
-  "description": "MCP server for bilibili",
+  "description": "MCP server for the bilibili API",
   "license": "MIT",
   "author": "Soon Wang",
   "type": "module",
