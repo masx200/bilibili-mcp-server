@@ -138,7 +138,11 @@ const PORT = process.env.HTTP_API_PORT || 3000;
 app.on("error", (err) => console.error("Failed to start HTTP server:", err));
 app.listen(PORT, (err) => {
   if (err) return console.error("Failed to start HTTP server:", err);
-
+  const { HTTP_API_TOKEN, HTTP_API_PORT, HTTP_API_COOKIE } = process.env;
+  console.log(`MCP calculator streamable HTTP server configuration:`);
+  console.log(
+    JSON.stringify({ HTTP_API_COOKIE, HTTP_API_TOKEN, HTTP_API_PORT }, null, 4),
+  );
   console.log(
     `MCP calculator streamable HTTP server listening on http://localhost:${PORT}`,
   );
