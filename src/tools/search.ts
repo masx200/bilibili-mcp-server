@@ -74,6 +74,7 @@ export function registerSearchTools(server: McpServer): void {
         };
       } catch (error) {
         return {
+          isError: true,
           content: [
             {
               type: "text",

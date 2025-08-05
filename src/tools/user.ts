@@ -11,7 +11,7 @@ export function registerUserTools(server: McpServer): void {
     },
     async ({ mid }) => {
       try {
-        const userInfo = await getUserInfo(mid) || {};
+        const userInfo = (await getUserInfo(mid)) || {};
         const formattedInfo = formatUserInfo(userInfo);
 
         return {
@@ -24,6 +24,7 @@ export function registerUserTools(server: McpServer): void {
         };
       } catch (error) {
         return {
+          isError: true,
           content: [
             {
               type: "text",

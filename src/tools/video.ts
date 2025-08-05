@@ -55,6 +55,7 @@ export function registerVideoTools(server: McpServer): void {
         };
       } catch (error) {
         return {
+          isError: true,
           content: [
             {
               type: "text",
