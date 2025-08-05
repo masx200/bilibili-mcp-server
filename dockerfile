@@ -1,0 +1,44 @@
+FROM docker.xuanyuan.me/library/node:24-bookworm-slim as node_base
+
+
+
+
+
+copy ./debian.sources /etc/apt/sources.list.d/debian.sources
+run apt update
+run apt install apt-transport-https ca-certificates -y nano
+run rm -rf /var/lib/apt/lists/*
+run apt clean
+COPY ./sources.list /etc/apt/sources.list
+
+RUN apt-get update && apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+
+
+RUN apt-get update  && apt-get install -y sudo  && rm -rf /var/lib/apt/lists/*
+
+run apt clean
+
+
+WORKDIR /usr/local/lib/node_modules/@masx200/bilibili-mcp-server
+run rm -rfv /usr/local/lib/node_modules/@masx200/bilibili-mcp-server/*
+copy ./* /usr/local/lib/node_modules/@masx200/bilibili-mcp-server
+copy ./src /usr/local/lib/node_modules/@masx200/bilibili-mcp-server/src
+EXPOSE 49000 
+
+run npm config set registry https://registry.npmmirror.com
+env HTTP_API_PORT=49000
+
+run npm install -g cnpm --registry=https://registry.npmmirror.com
+run cnpm install --force
+ENTRYPOINT ["docker-entrypoint.sh"]
+env NODE_OPTIONS="--max-old-space-size=4096"
+run sh -c 'NODE_OPTIONS="--max-old-space-size=4096" npm run build'
+CMD ["node","/usr/local/lib/node_modules/@masx200/bilibili-mcp-server/dist/streamable-http.js"]
+env LANG=zh_CN.UTF-8
+env DEBIAN_FRONTEND=noninteractive
+env EDITOR=nano
+env TZ=Asia/Shanghai
