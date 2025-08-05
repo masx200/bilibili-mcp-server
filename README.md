@@ -1,4 +1,3 @@
-
 # bilibili MCP Server
 
 A MCP server for Bilibili API integration
