@@ -1,4 +1,7 @@
+
 # bilibili MCP Server
+
+A MCP server for Bilibili API integration
 
 [![MIT licensed][badge-license]][url-license]
 [![NPM version][badge-npm-version]][url-npm]
