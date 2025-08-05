@@ -25,10 +25,41 @@ English | [简体中文](./README.zh-CN.md)
 
 ## 使用方法
 
+### Streamable HTTP 模式
+
+bilibili-mcp-server支持两种运行模式：
+
+1. **stdio模式**（默认）：通过标准输入输出与MCP客户端通信
+2. **streamable-http模式**：通过HTTP协议提供MCP服务，支持SSE（Server-Sent
+   Events）
+
+#### Streamable HTTP 模式使用
+
+要使用streamable-http模式，请使用以下命令启动服务器：
+
+```bash
+# 基本启动
+node dist/streamable-http.js
+
+# 指定端口
+HTTP_API_PORT=8080 node dist/streamable-http.js
+
+# 启用访问令牌认证
+HTTP_API_TOKEN=your-secret-token HTTP_API_PORT=8080 node dist/streamable-http.js
+```
+
+服务器启动后，可以通过以下端点访问：
+
+- MCP API端点：`http://localhost:PORT/mcp`
+- 如果启用了令牌认证，客户端需要在请求头中添加：`Authorization: Bearer your-secret-token`
+
 ### 环境变量
 
 - `HTTP_API_COOKIE`（可选）：设置此环境变量以提供您的Bilibili
   Cookie用于认证请求。这有助于避免因Bilibili的反机器人措施导致的"请求失败，封控检测问题"。示例格式：`SESSDATA=您的SESSDATA值; buvid3=您的buvid3值`
+- `HTTP_API_TOKEN`（可选）：用于streamable-http模式的访问令牌认证。如果设置此环境变量，客户端请求时需要提供Bearer
+  token进行身份验证。示例：`your-secret-token`
+- `HTTP_API_PORT`（可选）：streamable-http服务器监听的端口号，默认为3000。示例：`8080`
 
 cookie 可以在浏览器上获取。
 
