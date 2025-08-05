@@ -1,11 +1,11 @@
 import type {
-  UserInfo,
-  SearchResult,
-  VideoDetail,
   RelatedVideo,
-} from "./types.js"
-import { userAPI, videoAPI, searchAPI } from "./api.js"
-import i18n from "./i18n.js"
+  SearchResult,
+  UserInfo,
+  VideoDetail,
+} from "./types.js";
+import { searchAPI, userAPI, videoAPI } from "./api.js";
+import i18n from "./i18n.js";
 
 /**
  * 获取用户信息
@@ -13,21 +13,21 @@ import i18n from "./i18n.js"
 export async function getUserInfo(mid: number): Promise<UserInfo> {
   try {
     // 获取用户基本信息
-    const userInfo = (await userAPI.getInfo(mid)) || {}
+    const userInfo = (await userAPI.getInfo(mid)) || {};
 
     // 获取用户粉丝和关注数
-    const followData = (await userAPI.getRelationStat(mid)) || {}
+    const followData = (await userAPI.getRelationStat(mid)) || {};
 
     // 合并数据
     userInfo.followInfo = {
       follower: followData.follower,
       following: followData.following,
-    }
+    };
 
-    return userInfo
+    return userInfo;
   } catch (error) {
-    console.error("Error fetching user info:", error)
-    throw error
+    console.error("Error fetching user info:", error);
+    throw error;
   }
 }
 
@@ -36,13 +36,13 @@ export async function getUserInfo(mid: number): Promise<UserInfo> {
  */
 export async function searchVideos(
   keyword: string,
-  page: number = 1
+  page: number = 1,
 ): Promise<SearchResult> {
   try {
-    return await searchAPI.searchVideos(keyword, page) || {}
+    return await searchAPI.searchVideos(keyword, page) || {};
   } catch (error) {
-    console.error("Error searching videos:", error)
-    throw error
+    console.error("Error searching videos:", error);
+    throw error;
   }
 }
 
@@ -51,10 +51,10 @@ export async function searchVideos(
  */
 export async function getVideoDetail(bvid: string): Promise<VideoDetail> {
   try {
-    return await videoAPI.getDetail(bvid)
+    return await videoAPI.getDetail(bvid);
   } catch (error) {
-    console.error("Error fetching video detail:", error)
-    throw error
+    console.error("Error fetching video detail:", error);
+    throw error;
   }
 }
 
@@ -63,10 +63,10 @@ export async function getVideoDetail(bvid: string): Promise<VideoDetail> {
  */
 export async function getRelatedVideos(bvid: string): Promise<RelatedVideo[]> {
   try {
-    return await videoAPI.getRelated(bvid)
+    return await videoAPI.getRelated(bvid);
   } catch (error) {
-    console.error("Error fetching related videos:", error)
-    throw error
+    console.error("Error fetching related videos:", error);
+    throw error;
   }
 }
 
@@ -74,22 +74,26 @@ export async function getRelatedVideos(bvid: string): Promise<RelatedVideo[]> {
  * 格式化时间戳
  */
 export function formatTimestamp(timestamp: number): string {
-  const date = new Date(timestamp * 1000)
-  return date.toLocaleString()
+  const date = new Date(timestamp * 1000);
+  return date.toLocaleString();
 }
 
 /**
  * 格式化时长（秒）
  */
 export function formatDuration(seconds: number): string {
-  const hours = Math.floor(seconds / 3600)
-  const minutes = Math.floor((seconds % 3600) / 60)
-  const remainingSeconds = seconds % 60
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
 
   if (hours > 0) {
-    return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`
+    return `${hours.toString().padStart(2, "0")}:${
+      minutes.toString().padStart(2, "0")
+    }:${remainingSeconds.toString().padStart(2, "0")}`;
   } else {
-    return `${minutes.toString().padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`
+    return `${minutes.toString().padStart(2, "0")}:${
+      remainingSeconds.toString().padStart(2, "0")
+    }`;
   }
 }
 
@@ -97,11 +101,11 @@ export function formatDuration(seconds: number): string {
  * 格式化用户信息
  */
 export function formatUserInfo(user: UserInfo): string {
-  const t = i18n.user
+  const t = i18n.user;
   const baseInfo = {
     [t.profile]: `https://space.bilibili.com/${user.mid}`,
     [t.uid]: user.mid,
-  }
+  };
   const optionalInfo: Record<string, string | undefined> = {
     [t.nickname]: user.name,
     [t.followers]: user.followInfo?.follower?.toLocaleString(),
@@ -117,20 +121,17 @@ export function formatUserInfo(user: UserInfo): string {
       : undefined,
     [t.liveRoomUrl]: user.live_room?.url,
     [t.liveStatus]: user.live_room?.url
-      ? user.live_room.liveStatus
-        ? t.liveOn
-        : t.liveOff
+      ? user.live_room.liveStatus ? t.liveOn : t.liveOff
       : undefined,
-  }
+  };
 
-  let info =
-    Object.entries(baseInfo)
-      .map(([key, value]) => `${key}: ${value}`)
-      .join("\n") + "\n"
+  let info = Object.entries(baseInfo)
+    .map(([key, value]) => `${key}: ${value}`)
+    .join("\n") + "\n";
   info += Object.entries(optionalInfo)
     .filter(([_, value]) => value !== undefined && value !== "")
     .map(([key, value]) => `${key}: ${value}`)
-    .join("\n")
+    .join("\n");
 
-  return info
+  return info;
 }

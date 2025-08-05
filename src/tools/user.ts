@@ -1,6 +1,6 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
-import { z } from "zod"
-import { formatUserInfo, getUserInfo } from "../common/utils.js"
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "zod";
+import { formatUserInfo, getUserInfo } from "../common/utils.js";
 
 export function registerUserTools(server: McpServer): void {
   server.tool(
@@ -11,8 +11,8 @@ export function registerUserTools(server: McpServer): void {
     },
     async ({ mid }) => {
       try {
-        const userInfo = await getUserInfo(mid) || {}
-        const formattedInfo = formatUserInfo(userInfo)
+        const userInfo = await getUserInfo(mid) || {};
+        const formattedInfo = formatUserInfo(userInfo);
 
         return {
           content: [
@@ -21,17 +21,19 @@ export function registerUserTools(server: McpServer): void {
               text: formattedInfo,
             },
           ],
-        }
+        };
       } catch (error) {
         return {
           content: [
             {
               type: "text",
-              text: `get user info failed: ${error instanceof Error ? error.message : String(error)}`,
+              text: `get user info failed: ${
+                error instanceof Error ? error.message : String(error)
+              }`,
             },
           ],
-        }
+        };
       }
-    }
-  )
+    },
+  );
 }

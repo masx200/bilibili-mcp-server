@@ -6,7 +6,8 @@
 
 English | [简体中文](./README.zh-CN.md)
 
-> _Model Context Protocol ([MCP](https://modelcontextprotocol.io/introduction)) Server for the [bilibili.com](https://www.bilibili.com) API._
+> _Model Context Protocol ([MCP](https://modelcontextprotocol.io/introduction))
+> Server for the [bilibili.com](https://www.bilibili.com) API._
 
 <a href="https://glama.ai/mcp/servers/@masx200/bilibili-mcp-server">
   <img width="380" height="200" src="https://glama.ai/mcp/servers/@masx200/bilibili-mcp-server/badge" alt="bilibili Server MCP server" />
@@ -20,11 +21,21 @@ English | [简体中文](./README.zh-CN.md)
 - [x] Search video information by `bvid`
 - [x] Search videos by keywords
 
-## Usage
+## 使用方法
+
+### 环境变量
+
+- `HTTP_API_COOKIE`（可选）：设置此环境变量以提供您的Bilibili
+  Cookie用于认证请求。这有助于避免因Bilibili的反机器人措施导致的"请求失败，封控检测问题"。示例格式：`SESSDATA=您的SESSDATA值; buvid3=您的buvid3值`
+
+cookie 可以在浏览器上获取。
+
+注意：如果您使用的是 Chrome 浏览器，请确保已登录 Bilibili 账号。
 
 ### Claude Desktop
 
-> Refer to the official [documentation](https://modelcontextprotocol.io/quickstart/server#testing-your-server-with-claude-for-desktop-2)
+> Refer to the official
+> [documentation](https://modelcontextprotocol.io/quickstart/server#testing-your-server-with-claude-for-desktop-2)
 
 config for npm (recommended)
 
@@ -56,14 +67,15 @@ config for local cloned repo
 }
 ```
 
-Save the configuration and restart. You will see the new `bilibili MCP` option as shown below:
+Save the configuration and restart. You will see the new `bilibili MCP` option
+as shown below:
 
 <div align="center">
   <img src="./assets/claude-desktop-1.png" alt="" width="500">
 
-  <img src="./assets/claude-desktop-2.png" alt="" width="500">
-  
-  <img src="./assets/claude-desktop-setting.png" alt="" width="500">
+<img src="./assets/claude-desktop-2.png" alt="" width="500">
+
+<img src="./assets/claude-desktop-setting.png" alt="" width="500">
 </div>
 
 #### Demo Vedio

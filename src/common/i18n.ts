@@ -1,4 +1,4 @@
-import { url } from "inspector"
+import { url } from "inspector";
 
 export const zh_CN = {
   user: {
@@ -46,7 +46,7 @@ export const zh_CN = {
     searchPlaceholder: "搜索视频、用户...",
     filterByType: "按类型筛选",
   },
-}
+};
 
 export const en_US = {
   user: {
@@ -94,11 +94,11 @@ export const en_US = {
     searchPlaceholder: "Search videos, users...",
     filterByType: "Filter by type",
   },
-}
+};
 
-export default en_US
+export default en_US;
 
 export const languages = {
   "zh-CN": zh_CN,
   "en-US": en_US,
-}
+};

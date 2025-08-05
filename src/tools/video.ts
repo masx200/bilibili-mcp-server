@@ -1,11 +1,11 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
-import { z } from "zod"
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "zod";
 import {
-  getVideoDetail,
-  formatTimestamp,
   formatDuration,
-} from "../common/utils.js"
-import i18n from "../common/i18n.js"
+  formatTimestamp,
+  getVideoDetail,
+} from "../common/utils.js";
+import i18n from "../common/i18n.js";
 
 export function registerVideoTools(server: McpServer): void {
   server.tool(
@@ -16,10 +16,10 @@ export function registerVideoTools(server: McpServer): void {
     },
     async ({ bvid }) => {
       try {
-        const t = i18n.video
+        const t = i18n.video;
 
-        const videoDetail = (await getVideoDetail(bvid)) || {}
-        const stats = videoDetail.stat || {}
+        const videoDetail = (await getVideoDetail(bvid)) || {};
+        const stats = videoDetail.stat || {};
 
         const detailLines = [
           `${t.title}: ${videoDetail.title}`,
@@ -42,8 +42,8 @@ export function registerVideoTools(server: McpServer): void {
           ...videoDetail.desc?.split("\n")?.map?.((line) => line),
           "",
           `${t.tags}: ${videoDetail.tags?.join(", ")}`,
-        ]
-        const formattedDetail = detailLines.map((line) => line).join("\n")
+        ];
+        const formattedDetail = detailLines.map((line) => line).join("\n");
 
         return {
           content: [
@@ -52,17 +52,19 @@ export function registerVideoTools(server: McpServer): void {
               text: formattedDetail.trim(),
             },
           ],
-        }
+        };
       } catch (error) {
         return {
           content: [
             {
               type: "text",
-              text: `Failed to fetch video info: ${error instanceof Error ? error.message : String(error)}`,
+              text: `Failed to fetch video info: ${
+                error instanceof Error ? error.message : String(error)
+              }`,
             },
           ],
-        }
+        };
       }
-    }
-  )
+    },
+  );
 }

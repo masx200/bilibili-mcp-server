@@ -18,10 +18,70 @@ interface WbiKeys {
  * 混合密钥编码表 - 用于WBI签名算法
  */
 const mixinKeyEncTab: number[] = [
-  46, 47, 18, 2, 53, 8, 23, 32, 15, 50, 10, 31, 58, 3, 45, 35, 27, 43, 5, 49,
-  33, 9, 42, 19, 29, 28, 14, 39, 12, 38, 41, 13, 37, 48, 7, 16, 24, 55, 40, 61,
-  26, 17, 0, 1, 60, 51, 30, 4, 22, 25, 54, 21, 56, 59, 6, 63, 57, 62, 11, 36,
-  20, 34, 44, 52,
+  46,
+  47,
+  18,
+  2,
+  53,
+  8,
+  23,
+  32,
+  15,
+  50,
+  10,
+  31,
+  58,
+  3,
+  45,
+  35,
+  27,
+  43,
+  5,
+  49,
+  33,
+  9,
+  42,
+  19,
+  29,
+  28,
+  14,
+  39,
+  12,
+  38,
+  41,
+  13,
+  37,
+  48,
+  7,
+  16,
+  24,
+  55,
+  40,
+  61,
+  26,
+  17,
+  0,
+  1,
+  60,
+  51,
+  30,
+  4,
+  22,
+  25,
+  54,
+  21,
+  56,
+  59,
+  6,
+  63,
+  57,
+  62,
+  11,
+  36,
+  20,
+  34,
+  44,
+  52,
 ];
 
 /**
@@ -45,7 +105,7 @@ const getMixinKey = (orig: string): string =>
 function encWbi(
   params: Record<string, string | number>,
   img_key: string,
-  sub_key: string
+  sub_key: string,
 ): string {
   const mixin_key: string = getMixinKey(img_key + sub_key),
     curr_time: number = Math.round(Date.now() / 1000),
@@ -107,11 +167,11 @@ async function getWbiKeys(): Promise<WbiKeys> {
   return {
     img_key: img_url.slice(
       img_url.lastIndexOf("/") + 1,
-      img_url.lastIndexOf(".")
+      img_url.lastIndexOf("."),
     ),
     sub_key: sub_url.slice(
       sub_url.lastIndexOf("/") + 1,
-      sub_url.lastIndexOf(".")
+      sub_url.lastIndexOf("."),
     ),
   };
 }
@@ -122,7 +182,7 @@ async function getWbiKeys(): Promise<WbiKeys> {
  * @returns 签名后的查询字符串
  */
 export async function wbiSignParamsQuery(
-  params: Record<string, string | number>
+  params: Record<string, string | number>,
 ): Promise<string> {
   const web_keys: WbiKeys = await getWbiKeys();
   return encWbi(params, web_keys.img_key, web_keys.sub_key);
@@ -138,7 +198,7 @@ export const wbiSign = {
    * @returns 签名后的参数对象，包含w_rid和wts
    */
   async sign(
-    params: Record<string, string | number>
+    params: Record<string, string | number>,
   ): Promise<Record<string, string | number>> {
     const queryString: string = await wbiSignParamsQuery(params);
     const urlParams = new URLSearchParams(queryString);

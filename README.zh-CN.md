@@ -6,7 +6,8 @@
 
 [English](./README.md) | 简体中文
 
-> _[bilibili.com](https://www.bilibili.com) 的模型上下文协议 ([MCP](https://modelcontextprotocol.io/introduction)) 服务器。_
+> _[bilibili.com](https://www.bilibili.com) 的模型上下文协议
+> ([MCP](https://modelcontextprotocol.io/introduction)) 服务器。_
 
 ## 功能特性
 
@@ -17,6 +18,15 @@
 - [x] 通过关键词搜索视频
 
 ## 使用方法
+
+### 环境变量
+
+- `HTTP_API_COOKIE`（可选）：设置此环境变量以提供您的Bilibili
+  Cookie用于认证请求。这有助于避免因Bilibili的反机器人措施导致的"请求失败，封控检测问题"。示例格式：`SESSDATA=您的SESSDATA值; buvid3=您的buvid3值`
+
+cookie 可以在浏览器上获取。
+
+注意：如果您使用的是 Chrome 浏览器，请确保已登录 Bilibili 账号。
 
 ### Claude Desktop
 
@@ -57,9 +67,9 @@ _**或者**_
 <div align="center">
   <img src="./assets/claude-desktop-1.png" alt="" width="500">
 
-  <img src="./assets/claude-desktop-2.png" alt="" width="500">
-  
-  <img src="./assets/claude-desktop-setting.png" alt="" width="500">
+<img src="./assets/claude-desktop-2.png" alt="" width="500">
+
+<img src="./assets/claude-desktop-setting.png" alt="" width="500">
 </div>
 
 #### 演示视频

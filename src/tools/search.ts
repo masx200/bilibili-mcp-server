@@ -1,7 +1,7 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
-import { z } from "zod"
-import { formatTimestamp, searchVideos } from "../common/utils.js"
-import type { VideoSearchItem } from "../common/types.js"
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "zod";
+import { formatTimestamp, searchVideos } from "../common/utils.js";
+import type { VideoSearchItem } from "../common/types.js";
 
 export function registerSearchTools(server: McpServer): void {
   server.tool(
@@ -25,7 +25,7 @@ export function registerSearchTools(server: McpServer): void {
     },
     async ({ keyword, page, count }) => {
       try {
-        const searchResult = await searchVideos(keyword, page) || {}
+        const searchResult = await searchVideos(keyword, page) || {};
 
         if (!searchResult.result || searchResult.result.length === 0) {
           return {
@@ -35,13 +35,13 @@ export function registerSearchTools(server: McpServer): void {
                 text: `No videos found related to "${keyword}".`,
               },
             ],
-          }
+          };
         }
 
         // 过滤出视频结果并限制数量
         const videoResults = searchResult.result
           .filter((item) => item.result_type === "video")?.[0]
-          ?.data?.slice(0, count) as VideoSearchItem[]
+          ?.data?.slice(0, count) as VideoSearchItem[];
 
         const formattedResults = videoResults
           .map((video, index) => {
@@ -53,10 +53,12 @@ export function registerSearchTools(server: McpServer): void {
               ` Likes: ${video.like?.toLocaleString()}`,
               ` Duration: ${video.duration}`,
               ` Published: ${formatTimestamp(video.pubdate)}`,
-              ` Description: ${video.description?.substring(0, 100)}${video.description?.length > 100 ? "..." : ""}`,
-            ].join("\n")
+              ` Description: ${video.description?.substring(0, 100)}${
+                video.description?.length > 100 ? "..." : ""
+              }`,
+            ].join("\n");
           })
-          .join("\n\n")
+          .join("\n\n");
 
         return {
           content: [
@@ -69,17 +71,19 @@ export function registerSearchTools(server: McpServer): void {
               ].join("\n"),
             },
           ],
-        }
+        };
       } catch (error) {
         return {
           content: [
             {
               type: "text",
-              text: `Failed to search videos: ${error instanceof Error ? error.message : String(error)}`,
+              text: `Failed to search videos: ${
+                error instanceof Error ? error.message : String(error)
+              }`,
             },
           ],
-        }
+        };
       }
-    }
-  )
+    },
+  );
 }

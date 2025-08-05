@@ -1,10 +1,10 @@
 import fetch from "node-fetch";
 import type {
   BiliResponse,
-  UserInfo,
-  VideoDetail,
   RelatedVideo,
   SearchResult,
+  UserInfo,
+  VideoDetail,
 } from "./types.js";
 import { wbiSignParamsQuery } from "./wbi.js";
 
@@ -19,8 +19,7 @@ const DEFAULT_HEADERS = {
   "User-Agent":
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
   Referer: "https://www.bilibili.com",
-  Cookie:
-    process.env.HTTP_API_COOKIE ??
+  Cookie: process.env.HTTP_API_COOKIE ??
     "buvid3=randomstring; path=/; domain=.bilibili.com",
 };
 
@@ -31,7 +30,7 @@ const DEFAULT_HEADERS = {
  */
 export async function apiRequest<T>(
   endpoint: string,
-  params?: Record<string, string | number>
+  params?: Record<string, string | number>,
 ): Promise<T> {
   let url = `${BASE_URL}${endpoint}`;
 
@@ -47,7 +46,7 @@ export async function apiRequest<T>(
 
   if (!response.ok) {
     throw new Error(
-      `API request failed: ${response.status} ${response.statusText}`
+      `API request failed: ${response.status} ${response.statusText}`,
     );
   }
 
@@ -77,7 +76,7 @@ export const userAPI = {
   async getRelationStat(mid: number) {
     return await apiRequest<{ follower: number; following: number }>(
       "/x/relation/stat",
-      { vmid: mid }
+      { vmid: mid },
     );
   },
 };
@@ -99,7 +98,7 @@ export const videoAPI = {
   async getRelated(bvid: string) {
     return await apiRequest<RelatedVideo[]>(
       "/x/web-interface/related/recommend",
-      { bvid }
+      { bvid },
     );
   },
 };
