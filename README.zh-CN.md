@@ -39,7 +39,10 @@ npm 配置（推荐）
   "mcpServers": {
     "bilibili": {
       "command": "npx",
-      "args": ["-y", "@masx200/bilibili-mcp-server"]
+      "args": ["-y", "@masx200/bilibili-mcp-server"],
+      "env": {
+        "HTTP_API_COOKIE": "您的SESSDATA值; buvid3=您的buvid3值"
+      }
     }
   }
 }
@@ -56,7 +59,10 @@ _**或者**_
       "command": "node",
       "args": [
         "/ABSOLUTE/PATH/TO/PARENT/FOLDER/bilibili-mcp-server/dist/index.js"
-      ]
+      ],
+      "env": {
+        "HTTP_API_COOKIE": "您的SESSDATA值; buvid3=您的buvid3值"
+      }
     }
   }
 }
