@@ -33,6 +33,9 @@ run npm config set registry https://registry.npmmirror.com
 env HTTP_API_PORT=49000
 
 run npm install -g cnpm --registry=https://registry.npmmirror.com
+
+
+
 run cnpm install --force
 ENTRYPOINT ["docker-entrypoint.sh"]
 env NODE_OPTIONS="--max-old-space-size=4096"
@@ -42,3 +45,6 @@ env LANG=zh_CN.UTF-8
 env DEBIAN_FRONTEND=noninteractive
 env EDITOR=nano
 env TZ=Asia/Shanghai
+
+
+run cnpm i -g npm cnpm --registry=https://registry.npmmirror.com
