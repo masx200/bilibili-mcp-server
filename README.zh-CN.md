@@ -29,7 +29,7 @@ npm 配置（推荐）
   "mcpServers": {
     "bilibili": {
       "command": "npx",
-      "args": ["-y", "@wangshunnn/bilibili-mcp-server"]
+      "args": ["-y", "@masx200/bilibili-mcp-server"]
     }
   }
 }
@@ -110,6 +110,6 @@ pnpm publish:major
 - [bilibili-API-collect](https://socialsisteryi.github.io/bilibili-API-collect/)
 
 [badge-license]: https://img.shields.io/badge/license-MIT-blue.svg
-[url-license]: https://github.com/wangshunnn/bilibili-mcp-server/blob/main/LICENSE
-[badge-npm-version]: https://img.shields.io/npm/v/@wangshunnn/bilibili-mcp-server/latest?color=brightgreen
-[url-npm]: https://www.npmjs.com/package/@wangshunnn/bilibili-mcp-server
+[url-license]: https://github.com/masx200/bilibili-mcp-server/blob/main/LICENSE
+[badge-npm-version]: https://img.shields.io/npm/v/@masx200/bilibili-mcp-server/latest?color=brightgreen
+[url-npm]: https://www.npmjs.com/package/@masx200/bilibili-mcp-server

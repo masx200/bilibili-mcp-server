@@ -4,14 +4,14 @@
  * Thanks!
  */
 
-import crypto from "node:crypto"
+import crypto from "node:crypto";
 
 /**
  * WBI密钥接口
  */
 interface WbiKeys {
-  img_key: string
-  sub_key: string
+  img_key: string;
+  sub_key: string;
 }
 
 /**
@@ -22,7 +22,7 @@ const mixinKeyEncTab: number[] = [
   33, 9, 42, 19, 29, 28, 14, 39, 12, 38, 41, 13, 37, 48, 7, 16, 24, 55, 40, 61,
   26, 17, 0, 1, 60, 51, 30, 4, 22, 25, 54, 21, 56, 59, 6, 63, 57, 62, 11, 36,
   20, 34, 44, 52,
-]
+];
 
 /**
  * 对 imgKey 和 subKey 进行字符顺序打乱编码
@@ -33,7 +33,7 @@ const getMixinKey = (orig: string): string =>
   mixinKeyEncTab
     .map((n) => orig[n])
     .join("")
-    .slice(0, 32)
+    .slice(0, 32);
 
 /**
  * 为请求参数进行 wbi 签名
@@ -49,30 +49,30 @@ function encWbi(
 ): string {
   const mixin_key: string = getMixinKey(img_key + sub_key),
     curr_time: number = Math.round(Date.now() / 1000),
-    chr_filter: RegExp = /[!'()*]/g
+    chr_filter: RegExp = /[!'()*]/g;
 
   // 创建一个新对象，避免修改原始对象
   const signParams: Record<string, string | number> = {
     ...params,
     wts: curr_time,
-  }
+  };
 
   // 按照 key 重排参数
   const query: string = Object.keys(signParams)
     .sort()
     .map((key) => {
       // 过滤 value 中的 "!'()*" 字符
-      const value: string = signParams[key].toString().replace(chr_filter, "")
-      return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+      const value: string = signParams[key].toString().replace(chr_filter, "");
+      return `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
     })
-    .join("&")
+    .join("&");
 
   const wbi_sign: string = crypto
     .createHash("md5")
     .update(query + mixin_key)
-    .digest("hex") // 计算 w_rid
+    .digest("hex"); // 计算 w_rid
 
-  return query + "&w_rid=" + wbi_sign
+  return query + "&w_rid=" + wbi_sign;
 }
 
 /**
@@ -83,26 +83,26 @@ async function getWbiKeys(): Promise<WbiKeys> {
   interface NavResponse {
     data: {
       wbi_img: {
-        img_url: string
-        sub_url: string
-      }
-    }
+        img_url: string;
+        sub_url: string;
+      };
+    };
   }
 
   const res = await fetch("https://api.bilibili.com/x/web-interface/nav", {
     headers: {
       // SESSDATA 字段
-      Cookie: "SESSDATA=xxxxxx",
+      Cookie: process.env.HTTP_API_COOKIE ?? "SESSDATA=xxxxxx",
       "User-Agent":
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
       Referer: "https://www.bilibili.com/",
     },
-  })
+  });
 
-  const data: NavResponse = await res.json()
+  const data: NavResponse = await res.json();
 
-  const img_url: string = data.data.wbi_img.img_url
-  const sub_url: string = data.data.wbi_img.sub_url
+  const img_url: string = data.data.wbi_img.img_url;
+  const sub_url: string = data.data.wbi_img.sub_url;
 
   return {
     img_key: img_url.slice(
@@ -113,7 +113,7 @@ async function getWbiKeys(): Promise<WbiKeys> {
       sub_url.lastIndexOf("/") + 1,
       sub_url.lastIndexOf(".")
     ),
-  }
+  };
 }
 
 /**
@@ -124,8 +124,8 @@ async function getWbiKeys(): Promise<WbiKeys> {
 export async function wbiSignParamsQuery(
   params: Record<string, string | number>
 ): Promise<string> {
-  const web_keys: WbiKeys = await getWbiKeys()
-  return encWbi(params, web_keys.img_key, web_keys.sub_key)
+  const web_keys: WbiKeys = await getWbiKeys();
+  return encWbi(params, web_keys.img_key, web_keys.sub_key);
 }
 
 /**
@@ -140,14 +140,14 @@ export const wbiSign = {
   async sign(
     params: Record<string, string | number>
   ): Promise<Record<string, string | number>> {
-    const queryString: string = await wbiSignParamsQuery(params)
-    const urlParams = new URLSearchParams(queryString)
-    const signedParams: Record<string, string> = {}
+    const queryString: string = await wbiSignParamsQuery(params);
+    const urlParams = new URLSearchParams(queryString);
+    const signedParams: Record<string, string> = {};
 
     urlParams.forEach((value, key) => {
-      signedParams[key] = value
-    })
+      signedParams[key] = value;
+    });
 
-    return signedParams
+    return signedParams;
   },
-}
+};

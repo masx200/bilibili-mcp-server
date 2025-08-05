@@ -8,8 +8,8 @@ English | [简体中文](./README.zh-CN.md)
 
 > _Model Context Protocol ([MCP](https://modelcontextprotocol.io/introduction)) Server for the [bilibili.com](https://www.bilibili.com) API._
 
-<a href="https://glama.ai/mcp/servers/@wangshunnn/bilibili-mcp-server">
-  <img width="380" height="200" src="https://glama.ai/mcp/servers/@wangshunnn/bilibili-mcp-server/badge" alt="bilibili Server MCP server" />
+<a href="https://glama.ai/mcp/servers/@masx200/bilibili-mcp-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@masx200/bilibili-mcp-server/badge" alt="bilibili Server MCP server" />
 </a>
 
 ## Features
@@ -33,7 +33,7 @@ config for npm (recommended)
   "mcpServers": {
     "bilibili": {
       "command": "npx",
-      "args": ["-y", "@wangshunnn/bilibili-mcp-server"]
+      "args": ["-y", "@masx200/bilibili-mcp-server"]
     }
   }
 }
@@ -114,6 +114,6 @@ These commands will automatically:
 - [bilibili-API-collect](https://socialsisteryi.github.io/bilibili-API-collect/)
 
 [badge-license]: https://img.shields.io/badge/license-MIT-blue.svg
-[url-license]: https://github.com/wangshunnn/bilibili-mcp-server/blob/main/LICENSE
-[badge-npm-version]: https://img.shields.io/npm/v/@wangshunnn/bilibili-mcp-server/latest?color=brightgreen
-[url-npm]: https://www.npmjs.com/package/@wangshunnn/bilibili-mcp-server
+[url-license]: https://github.com/masx200/bilibili-mcp-server/blob/main/LICENSE
+[badge-npm-version]: https://img.shields.io/npm/v/@masx200/bilibili-mcp-server/latest?color=brightgreen
+[url-npm]: https://www.npmjs.com/package/@masx200/bilibili-mcp-server
