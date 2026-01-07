@@ -30,7 +30,7 @@
     "publish:major": "npm version major && npm publish --access public"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.17.1",
+    "@modelcontextprotocol/sdk": "^1.25.2",
     "@types/express": "^5.0.3",
     "@types/node": "^22.15.12",
     "@types/node-fetch": "^2.6.12",
